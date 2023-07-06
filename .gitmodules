@@ -1,0 +1,3 @@
+[submodule "SharedKernel"]
+	path = SharedKernel
+	url = git@ssh.dev.azure.com:v3/SV-FirstRate5/FirstRate5/SharedKernel
