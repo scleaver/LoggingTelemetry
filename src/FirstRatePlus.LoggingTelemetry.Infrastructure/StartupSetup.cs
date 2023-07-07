@@ -1,12 +1,9 @@
-﻿using FirstRatePlus.LoggingTelemetry.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace FirstRatePlus.LoggingTelemetry.Infrastructure;
 
 public static class StartupSetup
 {
-  public static void AddDbContext(this IServiceCollection services, string connectionString) =>
-      services.AddDbContext<AppDbContext>(options =>
-          options.UseSqlite(connectionString)); // will be created in web project root
+  public static void AddCosmosRepo(this IServiceCollection services) =>
+      services.AddCosmosRepository(); // will be created in web project root
 }

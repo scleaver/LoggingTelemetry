@@ -1,77 +1,45 @@
-﻿using FirstRatePlus.LoggingTelemetry.Core.ContributorAggregate;
-using FirstRatePlus.LoggingTelemetry.Core.ProjectAggregate;
-using FirstRatePlus.LoggingTelemetry.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Bogus;
+using FirstRatePlus.LoggingTelemetry.Core.Entities;
+using Microsoft.Azure.CosmosRepository;
 
 namespace FirstRatePlus.LoggingTelemetry.Api;
 
+/// <summary>
+/// Seeds the DB with test data for development.
+/// </summary>
 public static class SeedData
 {
-  public static readonly Contributor Contributor1 = new ("Ardalis");
-  public static readonly Contributor Contributor2 = new ("Snowfrog");
-  public static readonly Project TestProject1 = new Project("Test Project", PriorityStatus.Backlog);
-  public static readonly ToDoItem ToDoItem1 = new ToDoItem
-  {
-    Title = "Get Sample Working",
-    Description = "Try to get the sample to build."
-  };
-  public static readonly ToDoItem ToDoItem2 = new ToDoItem
-  {
-    Title = "Review Solution",
-    Description = "Review the different projects in the solution and how they relate to one another."
-  };
-  public static readonly ToDoItem ToDoItem3 = new ToDoItem
-  {
-    Title = "Run and Review Tests",
-    Description = "Make sure all the tests run and review what they are doing."
-  };
 
-  public static void Initialize(IServiceProvider serviceProvider)
+  public static async Task InitializeAsync(IRepositoryFactory factory)
   {
-    using (var dbContext = new AppDbContext(
-        serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(), null))
+    await PopulateTestInstallLogsAsync(factory);
+  }
+
+  private static async Task PopulateTestInstallLogsAsync(IRepositoryFactory factory)
+  {
+    IRepository<InstallLog> repository = factory.RepositoryOf<InstallLog>();
+
+    await SeedAsync();
+
+    async Task SeedAsync()
     {
-      // Look for any TODO items.
-      if (dbContext.ToDoItems.Any())
+      IEnumerable<InstallLog> current = await repository.GetAsync(x => x.Type == nameof(InstallLog));
+
+      if (current.Any())
       {
-        return;   // DB has been seeded
+        return;
       }
 
-      PopulateTestData(dbContext);
+      Faker<InstallLog> installLogFaker = new();
+      installLogFaker
+          .StrictMode(true)
+          .RuleFor(i => i.UserId, f => Guid.NewGuid().ToString())
+          .RuleFor(i => i.MachineId, f => Guid.NewGuid().ToString())
+          .RuleFor(i => i.SoftwareName, f => "FirstRate5")
+          .RuleFor(p => p.ReleaseNumber, f => f.Random.Number(53000, 55000));
 
-
+      List<InstallLog> logs = installLogFaker.Generate(100);
+      await repository.CreateAsync(logs);
     }
-  }
-  public static void PopulateTestData(AppDbContext dbContext)
-  {
-    foreach (var item in dbContext.Projects)
-    {
-      dbContext.Remove(item);
-    }
-    foreach (var item in dbContext.ToDoItems)
-    {
-      dbContext.Remove(item);
-    }
-    foreach (var item in dbContext.Contributors)
-    {
-      dbContext.Remove(item);
-    }
-    dbContext.SaveChanges();
-
-    dbContext.Contributors.Add(Contributor1);
-    dbContext.Contributors.Add(Contributor2);
-
-    dbContext.SaveChanges();
-
-    ToDoItem1.AddContributor(Contributor1.Id);
-    ToDoItem2.AddContributor(Contributor2.Id);
-    ToDoItem3.AddContributor(Contributor1.Id);
-
-    TestProject1.AddItem(ToDoItem1);
-    TestProject1.AddItem(ToDoItem2);
-    TestProject1.AddItem(ToDoItem3);
-    dbContext.Projects.Add(TestProject1);
-
-    dbContext.SaveChanges();
   }
 }

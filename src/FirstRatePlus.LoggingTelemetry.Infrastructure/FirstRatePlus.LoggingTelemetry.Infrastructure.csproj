@@ -14,10 +14,17 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="SQLite" />
+    <PackageReference Include="IEvangelist.Azure.CosmosRepository" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.Core\FirstRatePlus.LoggingTelemetry.Core.csproj" />
     <ProjectReference Include="..\..\SharedKernel\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
 </Project>

@@ -3,13 +3,13 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
-using FirstRatePlus.LoggingTelemetry.Infrastructure.Data;
 using FirstRatePlus.LoggingTelemetry.Api;
 using FastEndpoints;
 using FastEndpoints.Swagger.Swashbuckle;
 using FastEndpoints.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Microsoft.Azure.CosmosRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +25,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
 
 string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");  //Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext(connectionString!);
+//builder.Services.AddDbContext(connectionString!);
+builder.Services.AddCosmosRepo();
 
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();
@@ -33,7 +34,7 @@ builder.Services.AddFastEndpoints();
 builder.Services.AddFastEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-  c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+  c.SwaggerDoc("v1", new OpenApiInfo { Title = "FirstRatePlus Logging and Telemetry", Version = "v1" });
   c.EnableAnnotations();
   c.OperationFilter<FastEndpointsOperationFilter>();
 });
@@ -79,27 +80,29 @@ app.UseCookiePolicy();
 app.UseSwagger();
 
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FirstRatePlus Logging and Telemetry V1"));
 
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 
 // Seed Database
-using (var scope = app.Services.CreateScope())
+if (!builder.Environment.IsDevelopment())
 {
-  var services = scope.ServiceProvider;
+  using (var scope = app.Services.CreateScope())
+  {
+    var services = scope.ServiceProvider;
 
-  try
-  {
-    var context = services.GetRequiredService<AppDbContext>();
-    //                    context.Database.Migrate();
-    context.Database.EnsureCreated();
-    SeedData.Initialize(services);
-  }
-  catch (Exception ex)
-  {
-    var logger = services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
+    try
+    {
+      IRepositoryFactory factory = services.GetRequiredService<IRepositoryFactory>()!;
+
+      await SeedData.InitializeAsync(factory);
+    }
+    catch (Exception ex)
+    {
+      var logger = services.GetRequiredService<ILogger<Program>>();
+      logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
+    }
   }
 }
 

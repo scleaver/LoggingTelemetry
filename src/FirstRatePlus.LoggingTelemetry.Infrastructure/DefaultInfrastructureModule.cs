@@ -1,8 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
-using FirstRatePlus.LoggingTelemetry.Core.Interfaces;
-using FirstRatePlus.LoggingTelemetry.Core.ProjectAggregate;
-using FirstRatePlus.LoggingTelemetry.Infrastructure.Data;
+using FirstRatePlus.LoggingTelemetry.Core.Entities;
 using FirstRatePlus.SharedKernel;
 using FirstRatePlus.SharedKernel.Interfaces;
 using MediatR;
@@ -20,7 +18,7 @@ public class DefaultInfrastructureModule : Module
   {
     _isDevelopment = isDevelopment;
     var coreAssembly =
-      Assembly.GetAssembly(typeof(Project)); // TODO: Replace "Project" with any type from your Core project
+      Assembly.GetAssembly(typeof(InstallLog)); // TODO: Replace "Project" with any type from your Core project
     var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
     if (coreAssembly != null)
     {
@@ -54,11 +52,6 @@ public class DefaultInfrastructureModule : Module
 
   private void RegisterCommonDependencies(ContainerBuilder builder)
   {
-    builder.RegisterGeneric(typeof(EfRepository<>))
-      .As(typeof(IRepository<>))
-      .As(typeof(IReadRepository<>))
-      .InstancePerLifetimeScope();
-
     builder
       .RegisterType<Mediator>()
       .As<IMediator>()
@@ -96,14 +89,12 @@ public class DefaultInfrastructureModule : Module
   private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
   {
     // NOTE: Add any development only services here
-    builder.RegisterType<FakeEmailSender>().As<IEmailSender>()
-      .InstancePerLifetimeScope();
+
   }
 
   private void RegisterProductionOnlyDependencies(ContainerBuilder builder)
   {
     // NOTE: Add any production only services here
-    builder.RegisterType<SmtpEmailSender>().As<IEmailSender>()
-      .InstancePerLifetimeScope();
+
   }
 }

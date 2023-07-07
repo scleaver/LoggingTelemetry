@@ -13,9 +13,16 @@
     <PackageReference Include="Ardalis.Specification" />
     <PackageReference Include="Autofac" />
     <PackageReference Include="MediatR" />
+    <PackageReference Include="IEvangelist.Azure.CosmosRepository" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Aggregates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Aggregates\" />
   </ItemGroup>
 </Project>

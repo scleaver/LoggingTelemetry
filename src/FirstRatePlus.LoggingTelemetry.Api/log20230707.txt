@@ -1,0 +1,212 @@
+2023-07-07 14:55:51.634 +10:00 [INF] Registered 1 endpoints in 27 milliseconds.
+2023-07-07 14:55:51.802 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 14:55:51.819 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 14:55:51.864 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 14:55:51.864 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 14:55:51.864 +10:00 [INF] Hosting environment: Development
+2023-07-07 14:55:51.864 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 14:55:53.352 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 14:55:53.372 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 14:55:53.387 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 35.2610ms
+2023-07-07 14:55:53.420 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-07-07 14:55:53.427 +10:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api/wwwroot/favicon.ico'
+2023-07-07 14:55:53.427 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 200 5430 image/x-icon 6.6072ms
+2023-07-07 14:55:58.896 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - -
+2023-07-07 14:55:58.899 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - - - 301 0 - 3.5306ms
+2023-07-07 14:55:59.070 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 14:55:59.147 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 77.5230ms
+2023-07-07 14:55:59.171 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - -
+2023-07-07 14:55:59.172 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - -
+2023-07-07 14:55:59.172 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - -
+2023-07-07 14:55:59.420 +10:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-07-07 14:55:59.388 +10:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-07-07 14:55:59.463 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 290.3673ms
+2023-07-07 14:55:59.464 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - - - 200 144929 text/css 291.6112ms
+2023-07-07 14:55:59.465 +10:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-07-07 14:55:59.466 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 293.0431ms
+2023-07-07 14:55:59.536 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - -
+2023-07-07 14:55:59.538 +10:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-07-07 14:55:59.538 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - - - 200 628 image/png 2.0610ms
+2023-07-07 14:55:59.558 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 14:55:59.623 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 65.1721ms
+2023-07-07 14:56:35.879 +10:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/install-logs application/json 100
+2023-07-07 14:56:35.889 +10:00 [INF] Executing endpoint 'HTTP: POST /install-logs'
+2023-07-07 14:56:35.933 +10:00 [INF] Executed endpoint 'HTTP: POST /install-logs'
+2023-07-07 14:56:35.933 +10:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/install-logs application/json 100 - 200 - application/json;+charset=utf-8 54.6752ms
+2023-07-07 15:05:31.124 +10:00 [INF] Registered 1 endpoints in 30 milliseconds.
+2023-07-07 15:05:31.269 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 15:05:31.287 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 15:05:31.370 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 15:05:31.370 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 15:05:31.370 +10:00 [INF] Hosting environment: Development
+2023-07-07 15:05:31.370 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 15:05:32.598 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 15:05:32.618 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 15:05:32.632 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 35.4392ms
+2023-07-07 15:05:32.663 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-07-07 15:05:32.667 +10:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api/wwwroot/favicon.ico'
+2023-07-07 15:05:32.667 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 0 5430 image/x-icon 4.3819ms
+2023-07-07 15:05:42.243 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 15:05:42.295 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 52.0527ms
+2023-07-07 15:05:42.428 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 15:05:42.520 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 92.0977ms
+2023-07-07 15:06:30.238 +10:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/install-logs application/json 112
+2023-07-07 15:06:30.240 +10:00 [INF] Executing endpoint 'HTTP: POST /install-logs'
+2023-07-07 15:06:30.280 +10:00 [INF] Executed endpoint 'HTTP: POST /install-logs'
+2023-07-07 15:06:30.280 +10:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/install-logs application/json 112 - 200 - application/json;+charset=utf-8 42.3612ms
+2023-07-07 15:09:04.477 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 15:09:04.507 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 29.8845ms
+2023-07-07 15:09:04.635 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 15:09:04.644 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 9.1370ms
+2023-07-07 15:48:42.858 +10:00 [INF] Registered 1 endpoints in 29 milliseconds.
+2023-07-07 15:48:43.026 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 15:48:43.043 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 15:48:43.114 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 15:48:43.114 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 15:48:43.114 +10:00 [INF] Hosting environment: Development
+2023-07-07 15:48:43.114 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 15:48:44.273 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 15:48:44.295 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 15:48:44.308 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 35.3409ms
+2023-07-07 15:48:44.335 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-07-07 15:48:44.336 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 404 0 - 1.3409ms
+2023-07-07 15:48:51.038 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/ - -
+2023-07-07 15:48:51.041 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/ - - - 301 0 - 2.8545ms
+2023-07-07 15:48:51.059 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 15:48:51.118 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 59.2530ms
+2023-07-07 15:48:51.140 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - -
+2023-07-07 15:48:51.158 +10:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-07-07 15:48:51.159 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - - - 200 144929 text/css 18.5847ms
+2023-07-07 15:48:51.221 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - -
+2023-07-07 15:48:51.222 +10:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-07-07 15:48:51.222 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - - - 200 628 image/png 0.7027ms
+2023-07-07 15:48:51.246 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 15:48:51.300 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 53.9021ms
+2023-07-07 17:23:50.828 +10:00 [INF] Registered 1 endpoints in 31 milliseconds.
+2023-07-07 17:23:50.982 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 17:23:50.996 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 17:23:51.113 +10:00 [INF] Start processing HTTP request GET http://169.254.169.254/metadata/instance?api-version=2020-06-01
+2023-07-07 17:23:51.114 +10:00 [INF] Sending HTTP request GET http://169.254.169.254/metadata/instance?api-version=2020-06-01
+2023-07-07 17:23:51.159 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 17:23:51.159 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 17:23:51.552 +10:00 [INF] Received HTTP response headers after 390.8449ms - 200
+2023-07-07 17:23:51.555 +10:00 [INF] End processing HTTP request after 395.9436ms - 200
+2023-07-07 17:23:51.670 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs&$filter=protocol%20eq%20rntbd
+2023-07-07 17:23:51.670 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs&$filter=protocol%20eq%20rntbd
+2023-07-07 17:23:51.975 +10:00 [INF] Received HTTP response headers after 305.3454ms - 200
+2023-07-07 17:23:51.975 +10:00 [INF] End processing HTTP request after 305.9699ms - 200
+2023-07-07 17:23:52.281 +10:00 [INF] Start processing HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs
+2023-07-07 17:23:52.281 +10:00 [INF] Sending HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs
+2023-07-07 17:23:52.339 +10:00 [INF] Received HTTP response headers after 57.2092ms - 201
+2023-07-07 17:23:52.339 +10:00 [INF] End processing HTTP request after 57.5329ms - 201
+2023-07-07 17:23:52.351 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 17:23:52.351 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 17:23:52.383 +10:00 [INF] Received HTTP response headers after 32.0626ms - 404
+2023-07-07 17:23:52.383 +10:00 [INF] End processing HTTP request after 32.2857ms - 404
+2023-07-07 17:23:52.424 +10:00 [INF] Start processing HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls
+2023-07-07 17:23:52.425 +10:00 [INF] Sending HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls
+2023-07-07 17:23:53.545 +10:00 [INF] Received HTTP response headers after 1120.2017ms - 201
+2023-07-07 17:23:53.546 +10:00 [INF] End processing HTTP request after 1121.2122ms - 201
+2023-07-07 17:23:53.596 +10:00 [INF] Cosmos query constructed for item type InstallLog: {"query":"SELECT VALUE root FROM root WHERE ((root[\"type\"] = \"InstallLog\") AND ((NOT IS_DEFINED(root[\"type\"])) OR (root[\"type\"] = \"InstallLog\")))"}
+2023-07-07 17:23:53.613 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 17:23:53.613 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 17:23:53.671 +10:00 [INF] Received HTTP response headers after 57.5686ms - 200
+2023-07-07 17:23:53.671 +10:00 [INF] End processing HTTP request after 57.942ms - 200
+2023-07-07 17:23:53.692 +10:00 [INF] Start processing HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test/docs
+2023-07-07 17:23:53.692 +10:00 [INF] Sending HTTP request POST https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test/docs
+2023-07-07 17:23:53.721 +10:00 [INF] Received HTTP response headers after 28.5341ms - 200
+2023-07-07 17:23:53.721 +10:00 [INF] End processing HTTP request after 28.7299ms - 200
+2023-07-07 17:23:53.741 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 17:23:53.741 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 17:23:53.772 +10:00 [INF] Received HTTP response headers after 30.9527ms - 200
+2023-07-07 17:23:53.772 +10:00 [INF] End processing HTTP request after 31.1583ms - 200
+2023-07-07 17:23:53.773 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 17:23:53.773 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 17:23:53.805 +10:00 [INF] Received HTTP response headers after 32.1083ms - 304
+2023-07-07 17:23:53.806 +10:00 [INF] End processing HTTP request after 32.2437ms - 304
+2023-07-07 17:23:53.835 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs%2f4P9xAA%3d%3d%2fcolls%2f4P9xAI4wKAU%3d%2fdocs&$filter=protocol%20eq%20rntbd&$partitionKeyRangeIds=0
+2023-07-07 17:23:53.835 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs%2f4P9xAA%3d%3d%2fcolls%2f4P9xAI4wKAU%3d%2fdocs&$filter=protocol%20eq%20rntbd&$partitionKeyRangeIds=0
+2023-07-07 17:23:53.863 +10:00 [INF] Received HTTP response headers after 27.5327ms - 200
+2023-07-07 17:23:53.863 +10:00 [INF] End processing HTTP request after 27.7586ms - 200
+2023-07-07 17:23:54.181 +10:00 [INF] Cosmos query executed for item type InstallLog with a charge of 2.8 RUs Query: {"query":"SELECT VALUE root FROM root WHERE ((root[\"type\"] = \"InstallLog\") AND ((NOT IS_DEFINED(root[\"type\"])) OR (root[\"type\"] = \"InstallLog\")))"}
+2023-07-07 17:23:55.305 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 17:23:55.305 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 17:23:55.306 +10:00 [INF] Hosting environment: Development
+2023-07-07 17:23:55.306 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 17:23:56.538 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 17:23:56.559 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 17:23:56.571 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 33.4835ms
+2023-07-07 17:23:56.598 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-07-07 17:23:56.599 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 0 - - 0.9876ms
+2023-07-07 17:35:48.338 +10:00 [INF] Registered 1 endpoints in 84 milliseconds.
+2023-07-07 17:35:48.497 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 17:35:48.515 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 17:35:48.565 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 17:35:48.566 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 17:35:48.566 +10:00 [INF] Hosting environment: Development
+2023-07-07 17:35:48.566 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 17:35:49.706 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 17:35:49.729 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 17:35:49.743 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 37.3495ms
+2023-07-07 17:35:49.771 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-07-07 17:35:49.772 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 0 - - 1.1399ms
+2023-07-07 17:36:49.772 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 17:36:49.842 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 70.9047ms
+2023-07-07 17:36:49.943 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 17:36:50.006 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 63.0059ms
+2023-07-07 17:37:03.863 +10:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/install-logs application/json 74
+2023-07-07 17:37:03.867 +10:00 [INF] Executing endpoint 'HTTP: POST /install-logs'
+2023-07-07 17:37:03.949 +10:00 [INF] Executed endpoint 'HTTP: POST /install-logs'
+2023-07-07 17:37:03.950 +10:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/install-logs application/json 74 - 400 - application/json;+charset=utf-8 86.3176ms
+2023-07-07 21:12:53.402 +10:00 [INF] Registered 1 endpoints in 55 milliseconds.
+2023-07-07 21:12:53.545 +10:00 [INF] User profile is available. Using '/Users/sethcleaver/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2023-07-07 21:12:53.557 +10:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2023-07-07 21:12:53.609 +10:00 [INF] Now listening on: http://localhost:57679
+2023-07-07 21:12:53.609 +10:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-07 21:12:53.609 +10:00 [INF] Hosting environment: Development
+2023-07-07 21:12:53.609 +10:00 [INF] Content root path: /Users/sethcleaver/Projects/SV/LoggingTelemetry/src/FirstRatePlus.LoggingTelemetry.Api
+2023-07-07 21:12:54.837 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-07-07 21:12:54.856 +10:00 [WRN] Failed to determine the https port for redirect.
+2023-07-07 21:12:54.869 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 404 0 - 32.5445ms
+2023-07-07 21:12:57.477 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-07-07 21:12:57.538 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 60.6252ms
+2023-07-07 21:12:57.661 +10:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-07-07 21:12:57.723 +10:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 61.9135ms
+2023-07-07 21:13:32.133 +10:00 [INF] Request starting HTTP/1.1 POST http://localhost:57679/internal/logging/install-logs application/json 108
+2023-07-07 21:13:32.136 +10:00 [INF] Executing endpoint 'HTTP: POST internal/logging/install-logs'
+2023-07-07 21:13:32.255 +10:00 [INF] Start processing HTTP request GET http://169.254.169.254/metadata/instance?api-version=2020-06-01
+2023-07-07 21:13:32.256 +10:00 [INF] Sending HTTP request GET http://169.254.169.254/metadata/instance?api-version=2020-06-01
+2023-07-07 21:13:32.277 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 21:13:32.277 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 21:13:32.530 +10:00 [INF] Received HTTP response headers after 251.5727ms - 200
+2023-07-07 21:13:32.531 +10:00 [INF] End processing HTTP request after 254.5067ms - 200
+2023-07-07 21:13:32.638 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs&$filter=protocol%20eq%20rntbd
+2023-07-07 21:13:32.638 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs&$filter=protocol%20eq%20rntbd
+2023-07-07 21:13:32.860 +10:00 [INF] Received HTTP response headers after 221.5805ms - 200
+2023-07-07 21:13:32.860 +10:00 [INF] End processing HTTP request after 222.3557ms - 200
+2023-07-07 21:13:33.247 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 21:13:33.247 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 21:13:33.300 +10:00 [INF] Received HTTP response headers after 53.2016ms - 200
+2023-07-07 21:13:33.300 +10:00 [INF] End processing HTTP request after 53.5073ms - 200
+2023-07-07 21:13:33.334 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 21:13:33.334 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/LoggingTelemetry/colls/Test
+2023-07-07 21:13:33.374 +10:00 [INF] Received HTTP response headers after 40.3875ms - 200
+2023-07-07 21:13:33.374 +10:00 [INF] End processing HTTP request after 40.6774ms - 200
+2023-07-07 21:13:33.391 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 21:13:33.392 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 21:13:33.429 +10:00 [INF] Received HTTP response headers after 37.0997ms - 200
+2023-07-07 21:13:33.429 +10:00 [INF] End processing HTTP request after 37.4239ms - 200
+2023-07-07 21:13:33.430 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 21:13:33.430 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com/dbs/4P9xAA==/colls/4P9xAI4wKAU=/pkranges
+2023-07-07 21:13:33.466 +10:00 [INF] Received HTTP response headers after 35.7106ms - 304
+2023-07-07 21:13:33.466 +10:00 [INF] End processing HTTP request after 35.9141ms - 304
+2023-07-07 21:13:33.597 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs%2f4P9xAA%3d%3d%2fcolls%2f4P9xAI4wKAU%3d%2fdocs&$filter=protocol%20eq%20rntbd&$partitionKeyRangeIds=0
+2023-07-07 21:13:33.597 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau-australiaeast.documents.azure.com//addresses/?$resolveFor=dbs%2f4P9xAA%3d%3d%2fcolls%2f4P9xAI4wKAU%3d%2fdocs&$filter=protocol%20eq%20rntbd&$partitionKeyRangeIds=0
+2023-07-07 21:13:33.629 +10:00 [INF] Received HTTP response headers after 32.1627ms - 200
+2023-07-07 21:13:33.629 +10:00 [INF] End processing HTTP request after 32.4652ms - 200
+2023-07-07 21:13:33.956 +10:00 [INF] Executed endpoint 'HTTP: POST internal/logging/install-logs'
+2023-07-07 21:13:33.957 +10:00 [INF] Request finished HTTP/1.1 POST http://localhost:57679/internal/logging/install-logs application/json 108 - 200 - application/json;+charset=utf-8 1824.2005ms
+2023-07-07 21:18:32.618 +10:00 [INF] Start processing HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 21:18:32.620 +10:00 [INF] Sending HTTP request GET https://cosmos-fr5data-local-eastau.documents.azure.com/
+2023-07-07 21:18:32.885 +10:00 [INF] Received HTTP response headers after 265.1584ms - 200
+2023-07-07 21:18:32.885 +10:00 [INF] End processing HTTP request after 267.0775ms - 200

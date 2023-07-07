@@ -25,10 +25,31 @@
     <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+    <PackageReference Include="Bogus" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.Infrastructure\FirstRatePlus.LoggingTelemetry.Infrastructure.csproj" />
   </ItemGroup>
   
+  <ItemGroup>
+    <None Remove="Controllers\" />
+    <None Remove="ApiModels\" />
+    <None Remove="Api\" />
+    <None Remove="Pages\" />
+    <None Remove="ViewModels\" />
+    <None Remove="Views\" />
+    <None Remove="Endpoints\" />
+    <None Remove="Endpoints\InstallLogEndpoints\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="ApiModels\" />
+    <Folder Include="Api\" />
+    <Folder Include="Pages\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Endpoints\" />
+    <Folder Include="Endpoints\InstallLogEndpoints\" />
+  </ItemGroup>
 </Project>

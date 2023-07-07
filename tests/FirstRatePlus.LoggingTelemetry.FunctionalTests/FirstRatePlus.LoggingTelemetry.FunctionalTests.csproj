@@ -29,4 +29,20 @@
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.UnitTests\FirstRatePlus.LoggingTelemetry.UnitTests.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="ApiEndpoints\ContributorGetById.cs" />
+    <Compile Remove="ApiEndpoints\ProjectGetById.cs" />
+    <Compile Remove="ApiEndpoints\ContributorList.cs" />
+    <Compile Remove="ApiEndpoints\ProjectList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ApiEndpoints\" />
+    <None Remove="ControllerApis\" />
+    <None Remove="ControllerViews\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApiEndpoints\" />
+    <Folder Include="ControllerApis\" />
+    <Folder Include="ControllerViews\" />
+  </ItemGroup>
 </Project>
