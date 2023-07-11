@@ -42,6 +42,8 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
   containerBuilder.RegisterModule(new DefaultInfrastructureModule(builder.Environment.EnvironmentName == "Development"));
 });
 
+builder.Services.AddApplicationInsightsTelemetry();
+
 builder.Logging.AddAzureWebAppDiagnostics(); //add this if deploying to Azure
 
 var app = builder.Build();

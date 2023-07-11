@@ -28,6 +28,7 @@
     <PackageReference Include="Bogus" />
     <PackageReference Include="Riok.Mapperly" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
   </ItemGroup>
   
   <ItemGroup>
