@@ -39,7 +39,7 @@ steps:
 - checkout: self
   clean: true
   submodules: true
-  persistCredentials: true
+  persistCredentials: false
 
 - task: UseDotNet@2
   displayName: 'Setup .NET Core 7.0'
