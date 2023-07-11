@@ -8,17 +8,12 @@ using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.OpenApi.Models;
 using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
-
-builder.Services.Configure<CookiePolicyOptions>(options =>
-{
-  options.CheckConsentNeeded = context => true;
-  options.MinimumSameSitePolicy = SameSiteMode.None;
-});
 
 builder.Services.AddCosmosRepo();
 
@@ -47,7 +42,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
   containerBuilder.RegisterModule(new DefaultInfrastructureModule(builder.Environment.EnvironmentName == "Development"));
 });
 
-//builder.Logging.AddAzureWebAppDiagnostics(); add this if deploying to Azure
+builder.Logging.AddAzureWebAppDiagnostics(); //add this if deploying to Azure
 
 var app = builder.Build();
 
@@ -58,7 +53,7 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-  //app.UseExceptionHandler("/Home/Error");
+  app.UseExceptionHandler("/Error");
   app.UseHsts();
 }
 //app.UseRouting();
@@ -66,7 +61,6 @@ app.UseFastEndpoints();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseCookiePolicy();
 
 // Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwagger();

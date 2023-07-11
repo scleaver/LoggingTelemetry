@@ -27,6 +27,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
     <PackageReference Include="Bogus" />
     <PackageReference Include="Riok.Mapperly" />
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" />
   </ItemGroup>
   
   <ItemGroup>
