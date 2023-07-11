@@ -1,16 +1,13 @@
 ﻿using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using FastEndpoints;
+using FastEndpoints.ApiExplorer;
+using FastEndpoints.Swagger.Swashbuckle;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
-using FirstRatePlus.LoggingTelemetry.Api;
-using FastEndpoints;
-using FastEndpoints.Swagger.Swashbuckle;
-using FastEndpoints.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using Microsoft.Azure.CosmosRepository;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -23,13 +20,8 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
   options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-string? connectionString = builder.Configuration.GetConnectionString("SqliteConnection");  //Configuration.GetConnectionString("DefaultConnection");
-
-//builder.Services.AddDbContext(connectionString!);
 builder.Services.AddCosmosRepo();
 
-builder.Services.AddControllersWithViews().AddNewtonsoftJson();
-builder.Services.AddRazorPages();
 builder.Services.AddFastEndpoints();
 builder.Services.AddFastEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -66,10 +58,10 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-  app.UseExceptionHandler("/Home/Error");
+  //app.UseExceptionHandler("/Home/Error");
   app.UseHsts();
 }
-app.UseRouting();
+//app.UseRouting();
 app.UseFastEndpoints();
 
 app.UseHttpsRedirection();
@@ -81,30 +73,6 @@ app.UseSwagger();
 
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FirstRatePlus Logging and Telemetry V1"));
-
-app.MapDefaultControllerRoute();
-app.MapRazorPages();
-
-// Seed Database
-if (!builder.Environment.IsDevelopment())
-{
-  using (var scope = app.Services.CreateScope())
-  {
-    var services = scope.ServiceProvider;
-
-    try
-    {
-      IRepositoryFactory factory = services.GetRequiredService<IRepositoryFactory>()!;
-
-      await SeedData.InitializeAsync(factory);
-    }
-    catch (Exception ex)
-    {
-      var logger = services.GetRequiredService<ILogger<Program>>();
-      logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
-    }
-  }
-}
 
 app.Run();
 

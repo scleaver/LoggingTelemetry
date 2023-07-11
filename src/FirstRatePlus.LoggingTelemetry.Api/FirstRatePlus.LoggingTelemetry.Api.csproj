@@ -26,6 +26,7 @@
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
     <PackageReference Include="Bogus" />
+    <PackageReference Include="Riok.Mapperly" />
   </ItemGroup>
   
   <ItemGroup>
@@ -33,23 +34,13 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Remove="Controllers\" />
     <None Remove="ApiModels\" />
-    <None Remove="Api\" />
-    <None Remove="Pages\" />
-    <None Remove="ViewModels\" />
-    <None Remove="Views\" />
     <None Remove="Endpoints\" />
-    <None Remove="Endpoints\InstallLogEndpoints\" />
+    <None Remove="Endpoints\InstallLogs\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="ApiModels\" />
-    <Folder Include="Api\" />
-    <Folder Include="Pages\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
     <Folder Include="Endpoints\" />
-    <Folder Include="Endpoints\InstallLogEndpoints\" />
+    <Folder Include="Endpoints\InstallLogs\" />
   </ItemGroup>
 </Project>
