@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using Autofac;
-using FirstRatePlus.LoggingTelemetry.Core.Entities;
+using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 using FirstRatePlus.SharedKernel;
 using FirstRatePlus.SharedKernel.Interfaces;
 using MediatR;

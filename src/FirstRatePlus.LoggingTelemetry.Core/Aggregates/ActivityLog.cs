@@ -1,21 +1,17 @@
-using Microsoft.Azure.CosmosRepository;
+﻿using Microsoft.Azure.CosmosRepository;
+using Newtonsoft.Json.Linq;
 
 namespace FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 
 /// <summary>
-/// Represents a unique install of the software.
+/// Represents a log of an activity.
 /// </summary>
-public class InstallLog : Item
+public class ActivityLog : Item
 {
   /// <summary>
   /// The ID of the user installing the software.
   /// </summary>
   public string UserId { get; set; } = null!;
-
-  /// <summary>
-  /// The ID of the machine where the software is being installed.
-  /// </summary>
-  public string MachineId { get; set; } = null!;
 
   /// <summary>
   /// The official release number of the software when the record was created. eg. 53000
@@ -28,16 +24,31 @@ public class InstallLog : Item
   public string SoftwareName { get; set; } = null!;
 
   /// <summary>
+  /// The type of activity this log represents.
+  /// </summary>
+  public string ActivityType { get; set; } = null!;
+
+  /// <summary>
   /// The date and time the record was created in UTC.
   /// </summary>
   public DateTime DateCreatedUtc { get; private set; }
 
-  protected override string GetPartitionKeyValue() => base.GetPartitionKeyValue();
+  /// <summary>
+  /// The date and time the record was created in UTC.
+  /// </summary>
+  public DateTime ActivityDateUtc { get; }
 
-  public InstallLog()
+  /// <summary>
+  /// The dynamic JSON object associated with the activity log.
+  /// </summary>
+  public JObject Data { get; set; }
+
+  public ActivityLog()
   {
     // The date the log is created.
     DateCreatedUtc = DateTime.UtcNow;
+
+    // Initialize the dynamic JSON object
+    Data = new JObject();
   }
 }
-

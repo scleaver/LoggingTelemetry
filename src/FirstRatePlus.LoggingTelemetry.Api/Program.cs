@@ -6,7 +6,6 @@ using FastEndpoints.ApiExplorer;
 using FastEndpoints.Swagger.Swashbuckle;
 using FirstRatePlus.LoggingTelemetry.Api;
 using FirstRatePlus.LoggingTelemetry.Core;
-using FirstRatePlus.LoggingTelemetry.Core.Entities;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.Azure.CosmosRepository;
 using Microsoft.OpenApi.Models;
@@ -18,16 +17,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 
-//builder.Services.AddCosmosRepo();
-builder.Services.AddCosmosRepository(options =>
-{
-  options.ContainerPerItemType = true;
-
-  options.ContainerBuilder.Configure<InstallLog>(containerOptions =>
-  {
-    containerOptions.WithServerlessThroughput();
-  });
-});
+builder.Services.AddCosmosRepo();
 
 builder.Services.AddFastEndpoints();
 builder.Services.AddFastEndpointsApiExplorer();
@@ -89,7 +79,19 @@ else
   app.UseHsts();
 }
 //app.UseRouting();
-app.UseFastEndpoints();
+app.UseFastEndpoints(c =>
+{
+  c.Serializer.RequestDeserializer = async (req, tDto, jCtx, ct) =>
+  {
+    using var reader = new StreamReader(req.Body);
+    return Newtonsoft.Json.JsonConvert.DeserializeObject(await reader.ReadToEndAsync(), tDto);
+  };
+  c.Serializer.ResponseSerializer = (rsp, dto, cType, jCtx, ct) =>
+  {
+    rsp.ContentType = cType;
+    return rsp.WriteAsync(Newtonsoft.Json.JsonConvert.SerializeObject(dto), ct);
+  };
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

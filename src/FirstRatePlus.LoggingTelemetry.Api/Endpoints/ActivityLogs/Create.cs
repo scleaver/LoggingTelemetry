@@ -1,7 +1,7 @@
 ﻿/*
  * Create.cs
  * 
- * This class represents an API endpoint for creating install logs.
+ * This class represents an API endpoint for creating activity logs.
  * It inherits from the Endpoint class provided by the FastEndpoints library.
  * The endpoint handles HTTP POST requests to the specified route and allows anonymous access.
  * It uses the Mapperly library for object mapping and the Microsoft.Azure.CosmosRepository library for data access.
@@ -12,30 +12,26 @@ using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 using Microsoft.Azure.CosmosRepository;
 
-namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
-
+namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
 /// <summary>
 /// An API endpoint for creating an activity log.
 /// </summary>
-public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse>
+public class Create : Endpoint<CreateActivityLogRequest, CreateActivityLogResponse>
 {
-  private readonly IRepository<InstallLog> _repository;
+  private readonly IRepository<ActivityLog> _repository;
 
-  public Create(IRepository<InstallLog> repository)
+  public Create(IRepository<ActivityLog> repository)
   {
     _repository = repository;
   }
 
-  /// <summary>
-  /// Configures the endpoint.
-  /// </summary>
   public override void Configure()
   {
-    Post(CreateInstallLogRequest.Route);
+    Post(CreateActivityLogRequest.Route);
     AllowAnonymous();
     Options(x => x
-      .WithTags("InstallLog"));
+      .WithTags("ActivityLog"));
     Summary(s =>
     {
       s.Summary = "short summary goes here";
@@ -45,27 +41,20 @@ public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse
     });
   }
 
-  /// <summary>
-  /// Handles the incoming request to create an install log.
-  /// </summary>
-  /// <param name="req">The request object containing the install log data.</param>
-  /// <param name="ct">Cancellation token.</param>
-  public override async Task HandleAsync(
-    CreateInstallLogRequest req,
-    CancellationToken ct)
+  public override async Task HandleAsync(CreateActivityLogRequest req, CancellationToken ct)
   {
-    InstallLogMapper mapper = new InstallLogMapper();
+    var mapper = new ActivityLogMapper();
 
-    InstallLog newItem = mapper.CreateInstallLogRequestToInstallLog(req);
+    var newItem = mapper.RequestToActivityLog(req);
 
-    InstallLog? createdItem = await _repository.CreateAsync(newItem, ct);
+    var createdItem = await _repository.CreateAsync(newItem, ct);
 
     if (createdItem is null)
     {
       ThrowError("Item not created.");
     }
 
-    var response = new CreateInstallLogResponse
+    var response = new CreateActivityLogResponse
     {
       Id = createdItem.Id
     };
@@ -73,4 +62,3 @@ public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse
     await SendAsync(response, cancellation: ct);
   }
 }
-

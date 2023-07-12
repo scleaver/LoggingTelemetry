@@ -2,11 +2,11 @@
 using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
 using FirstRatePlus.LoggingTelemetry.Api.Constants;
 
-namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
+namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
-public class InstallLogListRequest : PagedRequest
+public class ActivityLogListRequest : PagedRequest
 {
-  public const string Route = Routes.InstallLogs;
+  public const string Route = Routes.ActivityLogs;
 
   /// <summary>
   /// The 

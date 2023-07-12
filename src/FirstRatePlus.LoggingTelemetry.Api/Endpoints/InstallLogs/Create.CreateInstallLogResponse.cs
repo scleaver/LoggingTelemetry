@@ -2,16 +2,8 @@
 
 public class CreateInstallLogResponse
 {
-  /// <inheritdoc cref="InstallLog.Id"/>
+  /// <summary>
+  /// The ID of the install log item.
+  /// </summary>
   public string? Id { get; set; }
-
-  /// <inheritdoc cref="InstallLog.UserId"/>
-  public string? UserId { get; set; }
-
-  public string? MachineId { get; set; }
-
-
-  public int ReleaseNumber { get; set; }
-  public string? SoftwareName { get; set; }
-  public DateTime DateCreatedUtc { get; set; }
 }

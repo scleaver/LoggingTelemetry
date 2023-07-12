@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using FastEndpoints;
 using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
-using FirstRatePlus.LoggingTelemetry.Core.Entities;
+using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.CosmosRepository;
 
