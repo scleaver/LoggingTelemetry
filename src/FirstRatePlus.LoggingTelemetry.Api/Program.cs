@@ -4,8 +4,11 @@ using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
 using FastEndpoints.ApiExplorer;
 using FastEndpoints.Swagger.Swashbuckle;
+using FirstRatePlus.LoggingTelemetry.Api;
 using FirstRatePlus.LoggingTelemetry.Core;
+using FirstRatePlus.LoggingTelemetry.Core.Entities;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
+using Microsoft.Azure.CosmosRepository;
 using Microsoft.OpenApi.Models;
 using Serilog;
 
@@ -15,7 +18,16 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
 
-builder.Services.AddCosmosRepo();
+//builder.Services.AddCosmosRepo();
+builder.Services.AddCosmosRepository(options =>
+{
+  options.ContainerPerItemType = true;
+
+  options.ContainerBuilder.Configure<InstallLog>(containerOptions =>
+  {
+    containerOptions.WithServerlessThroughput();
+  });
+});
 
 builder.Services.AddFastEndpoints();
 builder.Services.AddFastEndpointsApiExplorer();
@@ -52,6 +64,24 @@ if (app.Environment.IsDevelopment())
 {
   app.UseDeveloperExceptionPage();
   app.UseShowAllServicesMiddleware();
+
+  // Seed Database
+  using (var scope = app.Services.CreateScope())
+  {
+    var services = scope.ServiceProvider;
+
+    try
+    {
+      IRepositoryFactory factory = services.GetRequiredService<IRepositoryFactory>()!;
+
+      await SeedData.InitializeAsync(factory);
+    }
+    catch (Exception ex)
+    {
+      var logger = services.GetRequiredService<ILogger<Program>>();
+      logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
+    }
+  }
 }
 else
 {
