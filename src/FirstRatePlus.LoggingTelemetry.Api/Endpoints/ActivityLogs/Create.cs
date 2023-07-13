@@ -15,8 +15,9 @@ using Microsoft.Azure.CosmosRepository;
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
 /// <summary>
-/// An API endpoint for creating an activity log.
+/// Create an activity log.
 /// </summary>
+/// <remarks>Endpoint for creating a batch of activity logs in one request.</remarks>
 public class Create : Endpoint<CreateActivityLogRequest, CreateActivityLogResponse>
 {
   private readonly IRepository<ActivityLog> _repository;
@@ -30,17 +31,14 @@ public class Create : Endpoint<CreateActivityLogRequest, CreateActivityLogRespon
   {
     Post(CreateActivityLogRequest.Route);
     AllowAnonymous();
-    Options(x => x
-      .WithTags("ActivityLog"));
-    Summary(s =>
-    {
-      s.Summary = "short summary goes here";
-      s.Description = "long description goes here";
-      s.Responses[200] = "ok response description goes here";
-      s.Responses[403] = "forbidden response description goes here";
-    });
   }
 
+  /// <summary>
+  /// Handles the creation of an activity log asynchronously.
+  /// </summary>
+  /// <param name="req">The activity log data for creation.</param>
+  /// <param name="ct">The cancellation token.</param>
+  /// <returns>The ID of the created activity log.</returns>
   public override async Task HandleAsync(CreateActivityLogRequest req, CancellationToken ct)
   {
     var mapper = new ActivityLogMapper();

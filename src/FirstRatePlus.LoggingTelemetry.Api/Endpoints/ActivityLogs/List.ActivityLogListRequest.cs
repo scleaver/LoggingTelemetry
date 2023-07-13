@@ -3,6 +3,9 @@ using FirstRatePlus.LoggingTelemetry.Api.Constants;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
+/// <summary>
+/// The 
+/// </summary>
 public class ActivityLogListRequest : PagedRequest
 {
   public const string Route = Routes.ActivityLogs;

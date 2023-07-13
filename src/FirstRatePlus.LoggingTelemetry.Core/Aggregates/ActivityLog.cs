@@ -9,17 +9,17 @@ namespace FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 public class ActivityLog : Item
 {
   /// <summary>
-  /// The ID of the user installing the software.
+  /// The ID of the user who initiated the activity.
   /// </summary>
   public string UserId { get; set; } = null!;
 
   /// <summary>
-  /// The official release number of the software when the record was created. eg. 53000
+  /// The official release number of the software when the activity occured. eg. 53000
   /// </summary>
   public int ReleaseNumber { get; set; }
 
   /// <summary>
-  /// The name of the software being installed when the record was created.
+  /// The name of the software that the activity relates to.
   /// </summary>
   public string SoftwareName { get; set; } = null!;
 
@@ -29,7 +29,7 @@ public class ActivityLog : Item
   public string ActivityType { get; set; } = null!;
 
   /// <summary>
-  /// The date and time the record was created in UTC.
+  /// The date and time the activity log record was created in UTC.
   /// </summary>
   public DateTime DateCreatedUtc { get; private set; }
 

@@ -7,46 +7,29 @@
     <WebProjectMode>true</WebProjectMode>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="Ardalis.ApiEndpoints" />
     <PackageReference Include="Ardalis.ListStartupServices" />
     <PackageReference Include="Ardalis.Result" />
     <PackageReference Include="Ardalis.Result.AspNetCore" />
     <PackageReference Include="FastEndpoints" />
-    <PackageReference Include="FastEndpoints.ApiExplorer" />
-    <PackageReference Include="FastEndpoints.Swagger.Swashbuckle" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="all" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" PrivateAssets="All" />
     <PackageReference Include="Serilog.Sinks.ApplicationInsights" />
-    <PackageReference Include="Swashbuckle.AspNetCore" />
     <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
     <PackageReference Include="Bogus" />
     <PackageReference Include="Riok.Mapperly" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
+    <PackageReference Include="FastEndpoints.Swagger" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.Infrastructure\FirstRatePlus.LoggingTelemetry.Infrastructure.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="ApiModels\" />
-    <None Remove="Endpoints\" />
-    <None Remove="Endpoints\InstallLogs\" />
-    <None Remove="Endpoints\ActivityLogs\" />
-    <None Remove="Constants\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ApiModels\" />
-    <Folder Include="Endpoints\" />
-    <Folder Include="Endpoints\InstallLogs\" />
-    <Folder Include="Endpoints\ActivityLogs\" />
-    <Folder Include="Constants\" />
-  </ItemGroup>
+
 </Project>

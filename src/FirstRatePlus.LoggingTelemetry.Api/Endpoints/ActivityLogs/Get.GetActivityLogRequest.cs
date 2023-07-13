@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using FirstRatePlus.LoggingTelemetry.Api.Constants;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
@@ -10,7 +9,7 @@ public class GetActivityLogRequest
   public static string BuildRoute(string id) => Route.Replace("{Id}", id);
 
   /// <summary>
-  /// The ID of the activity.
+  /// The ID of the activity log.
   /// </summary>
   [Required]
   public string Id { get; set; } = null!;

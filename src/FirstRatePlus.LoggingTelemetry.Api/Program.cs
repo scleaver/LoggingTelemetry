@@ -2,13 +2,11 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
-using FastEndpoints.ApiExplorer;
-using FastEndpoints.Swagger.Swashbuckle;
+using FastEndpoints.Swagger;
 using FirstRatePlus.LoggingTelemetry.Api;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.Azure.CosmosRepository;
-using Microsoft.OpenApi.Models;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,12 +18,15 @@ builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Con
 builder.Services.AddCosmosRepo();
 
 builder.Services.AddFastEndpoints();
-builder.Services.AddFastEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.SwaggerDocument(o =>
 {
-  c.SwaggerDoc("v1", new OpenApiInfo { Title = "FirstRatePlus Logging and Telemetry", Version = "v1" });
-  c.EnableAnnotations();
-  c.OperationFilter<FastEndpointsOperationFilter>();
+  o.DocumentSettings = s =>
+  {
+    s.Title = "FirstRatePlus Logging and Telemetry";
+    s.Version = "v1";
+  };
+  o.ShortSchemaNames = true;
+  o.AutoTagPathSegmentIndex = 3;
 });
 
 // add list services for diagnostic purposes - see https://github.com/ardalis/AspNetCoreStartupServices
@@ -96,11 +97,11 @@ app.UseFastEndpoints(c =>
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-// Enable middleware to serve generated Swagger as a JSON endpoint.
-app.UseSwagger();
+//// Enable middleware to serve generated Swagger as a JSON endpoint.
+app.UseSwaggerGen();
 
-// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FirstRatePlus Logging and Telemetry V1"));
+//// Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+//app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FirstRatePlus Logging and Telemetry V1"));
 
 app.Run();
 

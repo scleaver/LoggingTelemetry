@@ -6,6 +6,10 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
+/// <summary>
+/// Get a list of activity logs.
+/// </summary>
+/// <remarks></remarks>
 public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogListResponse>>
 {
   private readonly IRepository<ActivityLog> _repository;
@@ -15,15 +19,10 @@ public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogLi
     _repository = repository;
   }
 
-  /// <summary>
-  /// Configures the endpoint.
-  /// </summary>
   public override void Configure()
   {
     Get(ActivityLogListRequest.Route);
     AllowAnonymous();
-    Options(x => x
-      .WithTags("ActivityLog"));
   }
 
   public override async Task HandleAsync(ActivityLogListRequest req, CancellationToken ct)

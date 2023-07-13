@@ -16,7 +16,7 @@ namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
 
 
 /// <summary>
-/// An API endpoint for creating an activity log.
+/// Create an install log.
 /// </summary>
 public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse>
 {
@@ -34,15 +34,6 @@ public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse
   {
     Post(CreateInstallLogRequest.Route);
     AllowAnonymous();
-    Options(x => x
-      .WithTags("InstallLog"));
-    Summary(s =>
-    {
-      s.Summary = "short summary goes here";
-      s.Description = "long description goes here";
-      s.Responses[200] = "ok response description goes here";
-      s.Responses[403] = "forbidden response description goes here";
-    });
   }
 
   /// <summary>

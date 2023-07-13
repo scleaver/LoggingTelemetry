@@ -7,6 +7,9 @@ using Microsoft.Azure.CosmosRepository;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
 
+/// <summary>
+/// Get an install log.
+/// </summary>
 public class Get : Endpoint<GetInstallLogRequest, GetInstallLogResponse>
 {
   private readonly IRepository<InstallLog> _repository;
@@ -23,8 +26,6 @@ public class Get : Endpoint<GetInstallLogRequest, GetInstallLogResponse>
   {
     Get(GetInstallLogRequest.Route);
     AllowAnonymous();
-    Options(x => x
-      .WithTags("InstallLog"));
   }
 
   public override async Task HandleAsync(GetInstallLogRequest req, CancellationToken ct)

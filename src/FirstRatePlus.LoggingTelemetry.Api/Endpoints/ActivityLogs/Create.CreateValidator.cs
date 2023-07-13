@@ -4,6 +4,9 @@ using FluentValidation;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
+/// <summary>
+/// 
+/// </summary>
 public class CreateValidator : Validator<CreateActivityLogRequest>
 {
   public CreateValidator()
