@@ -20,9 +20,11 @@ public class CreateActivityLogRequest
   [Required]
   public int ReleaseNumber { get; set; }
 
-  /// <inheritdoc cref="Core.Aggregates.ActivityLog.ActivityDateUtc"/>
+  /// <summary>
+  /// The date and time the activity was initiated in ISO 8601 format. eg. 2023-07-13T12:00:00+10:00 or 2023-07-13T02:00:00Z
+  /// </summary>
   [Required]
-  public DateTime ActivityDateUtc { get; }
+  public DateTimeOffset ActivityDate { get; set; }
 
   /// <inheritdoc cref="Core.Aggregates.ActivityLog.SoftwareName"/>
   [Required]

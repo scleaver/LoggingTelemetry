@@ -10,7 +10,7 @@ public class GetActivityLogRequest
   public static string BuildRoute(string id) => Route.Replace("{Id}", id);
 
   /// <summary>
-  /// The ID of the requested activity log.
+  /// The ID of the activity.
   /// </summary>
   [Required]
   public string Id { get; set; } = null!;

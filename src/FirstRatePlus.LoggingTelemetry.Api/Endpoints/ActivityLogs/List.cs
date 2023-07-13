@@ -28,17 +28,17 @@ public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogLi
 
   public override async Task HandleAsync(ActivityLogListRequest req, CancellationToken ct)
   {
-    if (req.ToUtc is null)
+    if (req.DateTo is null)
     {
-      req.ToUtc = DateTime.UtcNow;
+      req.DateTo = DateTime.UtcNow;
     }
 
-    if (req.FromUtc is null)
+    if (req.DateFrom is null)
     {
-      req.FromUtc = req.ToUtc.Value.AddDays(-30);
+      req.DateFrom = req.DateTo.Value.AddDays(-30);
     }
 
-    var pagedResults = await _repository.PageAsync(i => i.DateCreatedUtc >= req.FromUtc && i.DateCreatedUtc <= req.ToUtc, req.Page, req.PageSize, true, ct);
+    var pagedResults = await _repository.PageAsync(i => i.ActivityDateUtc >= req.DateFrom && i.ActivityDateUtc <= req.DateTo, req.Page, req.PageSize, true, ct);
 
     var response = new PagedResponse<ActivityLogListResponse>(new(), 0, req.Page, req.PageSize);
 
@@ -46,7 +46,7 @@ public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogLi
     {
       var mapper = new ActivityLogMapper();
 
-      var entities = pagedResults.Items.Select(i => mapper.ActivityLogToActivityLogListResponse(i)).ToList();
+      var entities = pagedResults.Items.Select(i => mapper.ToActivityLogListResponse(i)).ToList();
 
       response = new PagedResponse<ActivityLogListResponse>(entities, pagedResults.Total ?? 0, pagedResults.PageNumber ?? 1, pagedResults.Size);
     }

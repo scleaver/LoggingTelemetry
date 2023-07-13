@@ -35,7 +35,7 @@ public class Get : Endpoint<GetActivityLogRequest, GetActivityLogResponse>
 
       ActivityLogMapper mapper = new ActivityLogMapper();
 
-      var response = mapper.ActivityLogToGetActivityLogResponse(entity);
+      var response = mapper.ToGetActivityLogResponse(entity);
 
       await SendAsync(response, cancellation: ct);
     }

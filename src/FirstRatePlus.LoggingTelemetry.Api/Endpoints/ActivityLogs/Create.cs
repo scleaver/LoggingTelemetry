@@ -45,7 +45,7 @@ public class Create : Endpoint<CreateActivityLogRequest, CreateActivityLogRespon
   {
     var mapper = new ActivityLogMapper();
 
-    var newItem = mapper.RequestToActivityLog(req);
+    var newItem = mapper.FromCreateActivityLogRequest(req);
 
     var createdItem = await _repository.CreateAsync(newItem, ct);
 

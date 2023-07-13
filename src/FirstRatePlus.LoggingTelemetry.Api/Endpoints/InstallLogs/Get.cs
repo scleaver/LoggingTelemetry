@@ -40,7 +40,7 @@ public class Get : Endpoint<GetInstallLogRequest, GetInstallLogResponse>
 
       InstallLogMapper mapper = new InstallLogMapper();
 
-      GetInstallLogResponse response = mapper.FromInstallLogToGetInstallLogResponse(entity);
+      GetInstallLogResponse response = mapper.ToGetInstallLogResponse(entity);
 
       await SendAsync(response, cancellation: ct);
 

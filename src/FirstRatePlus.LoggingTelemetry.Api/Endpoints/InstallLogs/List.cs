@@ -48,7 +48,7 @@ public class List : Endpoint<InstallLogListRequest, PagedResponse<InstallLogList
     {
       var mapper = new InstallLogMapper();
 
-      var entities = pagedResults.Items.Select(i => mapper.FromInstallLogToInstallListLogResponse(i)).ToList();
+      var entities = pagedResults.Items.Select(i => mapper.ToInstallListLogResponse(i)).ToList();
 
       response = new PagedResponse<InstallLogListResponse>(entities, pagedResults.Total ?? 0, pagedResults.PageNumber ?? 1, pagedResults.Size);
     }

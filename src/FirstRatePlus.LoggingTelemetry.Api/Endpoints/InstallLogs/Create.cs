@@ -56,7 +56,7 @@ public class Create : Endpoint<CreateInstallLogRequest, CreateInstallLogResponse
   {
     InstallLogMapper mapper = new InstallLogMapper();
 
-    InstallLog newItem = mapper.CreateInstallLogRequestToInstallLog(req);
+    InstallLog newItem = mapper.FromCreateInstallLogRequest(req);
 
     InstallLog? createdItem = await _repository.CreateAsync(newItem, ct);
 

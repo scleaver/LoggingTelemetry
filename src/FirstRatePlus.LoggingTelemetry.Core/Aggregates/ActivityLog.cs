@@ -34,9 +34,9 @@ public class ActivityLog : Item
   public DateTime DateCreatedUtc { get; private set; }
 
   /// <summary>
-  /// The date and time the record was created in UTC.
+  /// The date and time the activity was initiated in UTC.
   /// </summary>
-  public DateTime ActivityDateUtc { get; }
+  public DateTime ActivityDateUtc { get; set; }
 
   /// <summary>
   /// The dynamic JSON object associated with the activity log.

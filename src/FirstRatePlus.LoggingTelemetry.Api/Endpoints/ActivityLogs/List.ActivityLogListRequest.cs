@@ -1,5 +1,4 @@
-﻿using System;
-using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
+﻿using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
 using FirstRatePlus.LoggingTelemetry.Api.Constants;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
@@ -9,13 +8,12 @@ public class ActivityLogListRequest : PagedRequest
   public const string Route = Routes.ActivityLogs;
 
   /// <summary>
-  /// The 
+  /// The earliest activity date/time for which to fetch the results in ISO 8601 format. eg. '2023-07-13T12:00:00+10:00' or '2023-07-13T02:00:00Z'. This defaults to 30 days from the current date and time.
   /// </summary>
-  public DateTime? FromUtc { get; set; }
+  public DateTime? DateFrom { get; set; }
 
   /// <summary>
-  /// 
+  /// The latest activity date/time for which to fetch the results in ISO 8601 format. eg. '2023-07-13T12:00:00+10:00' or '2023-07-13T02:00:00Z'. This defaults to the current date and time.
   /// </summary>
-  public DateTime? ToUtc { get; set; }
-
+  public DateTime? DateTo { get; set; }
 }

@@ -7,7 +7,7 @@ namespace FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 [Mapper]
 public partial class InstallLogMapper
 {
-  public partial InstallLog CreateInstallLogRequestToInstallLog(CreateInstallLogRequest request);
-  public partial GetInstallLogResponse FromInstallLogToGetInstallLogResponse(InstallLog installLog);
-  public partial InstallLogListResponse FromInstallLogToInstallListLogResponse(InstallLog installLog);
+  public partial InstallLog FromCreateInstallLogRequest(CreateInstallLogRequest request);
+  public partial GetInstallLogResponse ToGetInstallLogResponse(InstallLog installLog);
+  public partial InstallLogListResponse ToInstallListLogResponse(InstallLog installLog);
 }

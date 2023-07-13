@@ -7,7 +7,15 @@ namespace FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 [Mapper]
 public partial class ActivityLogMapper
 {
-  public partial ActivityLog RequestToActivityLog(CreateActivityLogRequest request);
-  public partial GetActivityLogResponse ActivityLogToGetActivityLogResponse(ActivityLog activityLog);
-  public partial ActivityLogListResponse ActivityLogToActivityLogListResponse(ActivityLog activityLog);
+  [MapProperty(nameof(CreateActivityLogRequest.ActivityDate), nameof(ActivityLog.ActivityDateUtc))]
+  public partial ActivityLog FromCreateActivityLogRequest(CreateActivityLogRequest request);
+
+  public partial GetActivityLogResponse ToGetActivityLogResponse(ActivityLog activityLog);
+
+  public partial ActivityLogListResponse ToActivityLogListResponse(ActivityLog activityLog);
+
+  /// <summary>
+  /// Maps DateTimeOffset to DateTime for UTC conversion.
+  /// </summary>
+  private DateTime DateTimeOffsetToDateTime(DateTimeOffset t) => t.UtcDateTime;
 }

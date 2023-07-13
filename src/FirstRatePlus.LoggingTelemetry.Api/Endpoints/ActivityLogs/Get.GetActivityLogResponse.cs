@@ -5,7 +5,7 @@ namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 public class GetActivityLogResponse
 {
   /// <summary>
-  /// The ID of the activity log item.
+  /// The ID of the activity.
   /// </summary>
   public string Id { get; set; } = null!;
 
@@ -22,10 +22,10 @@ public class GetActivityLogResponse
   public string ActivityType { get; set; } = null!;
 
   /// <inheritdoc cref="Core.Aggregates.ActivityLog.DateCreatedUtc"/>
-  public DateTime DateCreatedUtc { get; private set; }
+  public DateTime DateCreatedUtc { get; set; }
 
   /// <inheritdoc cref="Core.Aggregates.ActivityLog.ActivityDateUtc"/>
-  public DateTime ActivityDateUtc { get; }
+  public DateTime ActivityDateUtc { get; set; }
 
   /// <inheritdoc cref="Core.Aggregates.ActivityLog.Data/>
   public JObject Data { get; set; }

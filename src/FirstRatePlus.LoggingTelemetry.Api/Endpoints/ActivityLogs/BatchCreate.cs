@@ -33,7 +33,7 @@ public class BatchCreate : Endpoint<List<CreateActivityLogRequest>, List<CreateA
   {
     var mapper = new ActivityLogMapper();
 
-    var newItems = req.Select(l => mapper.RequestToActivityLog(l));
+    var newItems = req.Select(l => mapper.FromCreateActivityLogRequest(l));
 
     var items = await _repository.CreateAsync(newItems, ct);
 

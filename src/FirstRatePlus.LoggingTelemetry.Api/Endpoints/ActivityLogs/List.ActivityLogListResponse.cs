@@ -5,7 +5,7 @@ namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 public class ActivityLogListResponse
 {
   /// <summary>
-  /// The ID of the activity log item.
+  /// The ID of the activity.
   /// </summary>
   public string Id { get; set; } = null!;
 
@@ -36,4 +36,3 @@ public class ActivityLogListResponse
     Data = new JObject();
   }
 }
-
