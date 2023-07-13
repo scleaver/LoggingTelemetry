@@ -34,8 +34,6 @@ public class CreateValidator : Validator<CreateActivityLogRequest>
 
     RuleFor(x => x.ActivityDateUtc)
       .NotEmpty()
-      .WithMessage("A software name is required.")
-      .MinimumLength(1)
-      .WithMessage("The software name must have a minimum length of 1 character.");
+      .WithMessage("A activity date is required.");
   }
 }
