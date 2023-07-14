@@ -31,17 +31,17 @@ public class List : Endpoint<InstallLogListRequest, PagedResponse<InstallLogList
 
   public override async Task HandleAsync(InstallLogListRequest req, CancellationToken ct)
   {
-    if (req.ToUtc is null)
+    if (req.DateTo is null)
     {
-      req.ToUtc = DateTime.UtcNow;
+      req.DateTo = DateTime.UtcNow;
     }
 
-    if (req.FromUtc is null)
+    if (req.DateFrom is null)
     {
-      req.FromUtc = req.ToUtc.Value.AddDays(-30);
+      req.DateFrom = req.DateTo.Value.AddDays(-30);
     }
 
-    var pagedResults = await _repository.PageAsync(i => i.DateCreatedUtc >= req.FromUtc && i.DateCreatedUtc <= req.ToUtc, req.Page, req.PageSize, true, ct);
+    var pagedResults = await _repository.PageAsync(i => i.DateCreatedUtc >= req.DateFrom && i.DateCreatedUtc <= req.DateTo, req.Page, req.PageSize, true, ct);
 
     var response = new PagedResponse<InstallLogListResponse>(new(), 0, req.Page, req.PageSize);
 

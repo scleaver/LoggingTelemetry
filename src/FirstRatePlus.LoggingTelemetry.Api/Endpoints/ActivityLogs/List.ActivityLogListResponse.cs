@@ -35,12 +35,12 @@ public class ActivityLogListResponse
   /// <summary>
   /// The date and time the activity log record was created in UTC.
   /// </summary>
-  public DateTime DateCreatedUtc { get; private set; }
+  public DateTime DateCreatedUtc { get; set; }
 
   /// <summary>
   /// The date and time the activity was initiated in UTC.
   /// </summary>
-  public DateTime ActivityDateUtc { get; }
+  public DateTime ActivityDateUtc { get; set; }
 
   /// <summary>
   /// An optional JSON object with additional information to be recorded against the activity.

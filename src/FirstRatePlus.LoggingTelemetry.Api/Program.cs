@@ -1,4 +1,5 @@
-﻿using Ardalis.ListStartupServices;
+﻿using System.Text.Json;
+using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
@@ -7,6 +8,8 @@ using FirstRatePlus.LoggingTelemetry.Api;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.Azure.CosmosRepository;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -85,12 +88,21 @@ app.UseFastEndpoints(c =>
   c.Serializer.RequestDeserializer = async (req, tDto, jCtx, ct) =>
   {
     using var reader = new StreamReader(req.Body);
-    return Newtonsoft.Json.JsonConvert.DeserializeObject(await reader.ReadToEndAsync(), tDto);
+    return JsonConvert.DeserializeObject(await reader.ReadToEndAsync(), tDto);
   };
+
+  DefaultContractResolver contractResolver = new DefaultContractResolver
+  {
+    NamingStrategy = new CamelCaseNamingStrategy()
+  };
+
   c.Serializer.ResponseSerializer = (rsp, dto, cType, jCtx, ct) =>
   {
     rsp.ContentType = cType;
-    return rsp.WriteAsync(Newtonsoft.Json.JsonConvert.SerializeObject(dto), ct);
+    return rsp.WriteAsync(JsonConvert.SerializeObject(dto, new JsonSerializerSettings
+    {
+      ContractResolver = contractResolver
+    }), ct);
   };
 });
 
