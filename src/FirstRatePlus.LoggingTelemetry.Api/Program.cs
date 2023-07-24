@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using Ardalis.ListStartupServices;
+﻿using Ardalis.ListStartupServices;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
@@ -8,6 +7,7 @@ using FirstRatePlus.LoggingTelemetry.Api;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository.Extensions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Serilog;
@@ -47,6 +47,9 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
   containerBuilder.RegisterModule(new DefaultCoreModule());
   containerBuilder.RegisterModule(new DefaultInfrastructureModule(builder.Environment.EnvironmentName == "Development"));
 });
+
+builder.Services.AddHealthChecks()
+  .AddCosmosDb(builder.Configuration.GetCosmosRepositoryConnectionString()!); ;
 
 builder.Services.AddApplicationInsightsTelemetry();
 
@@ -108,6 +111,8 @@ app.UseFastEndpoints(c =>
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.MapHealthChecks("/healthz");
 
 //// Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwaggerGen();
