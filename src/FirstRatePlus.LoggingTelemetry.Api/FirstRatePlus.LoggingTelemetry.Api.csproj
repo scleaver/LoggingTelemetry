@@ -27,6 +27,7 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" />
     <PackageReference Include="FastEndpoints.Swagger" />
     <PackageReference Include="AspNetCore.HealthChecks.CosmosDb" />
+    <PackageReference Include="AspNetCore.HealthChecks.Publisher.ApplicationInsights" />
   </ItemGroup>
   
   <ItemGroup>

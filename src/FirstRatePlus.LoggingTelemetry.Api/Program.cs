@@ -49,7 +49,8 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 });
 
 builder.Services.AddHealthChecks()
-  .AddCosmosDb(builder.Configuration.GetCosmosRepositoryConnectionString()!); ;
+  .AddCosmosDb(builder.Configuration.GetCosmosRepositoryConnectionString()!)
+  .AddApplicationInsightsPublisher();
 
 builder.Services.AddApplicationInsightsTelemetry();
 

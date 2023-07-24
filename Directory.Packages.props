@@ -9,6 +9,7 @@
     <PackageVersion Include="Ardalis.Specification" Version="7.0.0" />
     <PackageVersion Include="Ardalis.Specification.EntityFrameworkCore" Version="6.1.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.CosmosDb" Version="6.1.0" />
+    <PackageVersion Include="AspNetCore.HealthChecks.Publisher.ApplicationInsights" Version="6.0.2" />
     <PackageVersion Include="Autofac" Version="7.0.1" />
     <PackageVersion Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageVersion Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
