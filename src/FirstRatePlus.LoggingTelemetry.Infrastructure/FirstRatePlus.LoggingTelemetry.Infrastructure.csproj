@@ -17,10 +17,5 @@
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.Core\FirstRatePlus.LoggingTelemetry.Core.csproj" />
     <ProjectReference Include="..\..\SharedKernel\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+
 </Project>

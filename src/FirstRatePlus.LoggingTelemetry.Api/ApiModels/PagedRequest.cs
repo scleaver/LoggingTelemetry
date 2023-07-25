@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.ApiModels;
 

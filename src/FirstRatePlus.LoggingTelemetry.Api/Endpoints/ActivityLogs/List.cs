@@ -27,6 +27,7 @@ public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogLi
 
   public override async Task HandleAsync(ActivityLogListRequest req, CancellationToken ct)
   {
+
     if (req.DateTo is null)
     {
       req.DateTo = DateTime.UtcNow;

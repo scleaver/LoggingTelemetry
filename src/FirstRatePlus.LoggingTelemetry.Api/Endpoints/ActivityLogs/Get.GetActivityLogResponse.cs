@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
@@ -28,11 +28,6 @@ public class GetActivityLogResponse
   public string SoftwareName { get; set; } = null!;
 
   /// <summary>
-  /// The type of activity this log represents.
-  /// </summary>
-  public string ActivityType { get; set; } = null!;
-
-  /// <summary>
   /// The date and time the activity log record was created in UTC.
   /// </summary>
   public DateTime DateCreatedUtc { get; set; }
@@ -50,7 +45,7 @@ public class GetActivityLogResponse
   public GetActivityLogResponse()
   {
     // Initialize the dynamic JSON object
-    Data = new JObject();
+    Data = new();
   }
 }
 

@@ -17,12 +17,6 @@ public class CreateValidator : Validator<CreateActivityLogRequest>
       .MinimumLength(1)
       .WithMessage("The user ID must have a minimum length of 1 character.");
 
-    RuleFor(x => x.ActivityType)
-      .NotEmpty()
-      .WithMessage("An activity type is required.")
-      .MinimumLength(1)
-      .WithMessage("The activity type must have a minimum length of 1 character.");
-
     RuleFor(x => x.ReleaseNumber)
       .GreaterThan(0)
       .WithMessage("The release number must be greater than 0.")

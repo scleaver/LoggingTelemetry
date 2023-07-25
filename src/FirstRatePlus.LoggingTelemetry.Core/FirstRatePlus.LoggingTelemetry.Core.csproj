@@ -19,10 +19,5 @@
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Aggregates\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aggregates\" />
-  </ItemGroup>
+
 </Project>

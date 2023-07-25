@@ -59,8 +59,6 @@ public static class SeedData
         return;
       }
 
-      var activities = new[] { "Calculation", "ChangeAddress", "ChangeAccreditation" };
-
       // Create a dynamic JSON object
       dynamic jsonData = new JObject();
       jsonData.Property1 = "Value 1";
@@ -70,7 +68,6 @@ public static class SeedData
       Faker<ActivityLog> logFaker = new();
       logFaker
           .RuleFor(i => i.UserId, f => Guid.NewGuid().ToString())
-          .RuleFor(i => i.ActivityType, f => f.PickRandom(activities))
           .RuleFor(i => i.ActivityDateUtc, f => f.Date.Past(1))
           .RuleFor(i => i.Data, f => JObject.FromObject(jsonData))
           .RuleFor(i => i.SoftwareName, f => "FirstRate5")

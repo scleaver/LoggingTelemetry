@@ -1,10 +1,10 @@
-﻿using Microsoft.Azure.CosmosRepository;
+using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json.Linq;
 
 namespace FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 
 /// <summary>
-/// Represents a log of an activity.
+/// Represents a log entry for an activity.
 /// </summary>
 public class ActivityLog : Item
 {
@@ -22,11 +22,6 @@ public class ActivityLog : Item
   /// The name of the software that the activity relates to.
   /// </summary>
   public string SoftwareName { get; set; } = null!;
-
-  /// <summary>
-  /// The type of activity this log represents.
-  /// </summary>
-  public string ActivityType { get; set; } = null!;
 
   /// <summary>
   /// The date and time the activity log record was created in UTC.
@@ -49,6 +44,6 @@ public class ActivityLog : Item
     DateCreatedUtc = DateTime.UtcNow;
 
     // Initialize the dynamic JSON object
-    Data = new JObject();
+    Data = new();
   }
 }

@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\FirstRatePlus.LoggingTelemetry.Core\FirstRatePlus.LoggingTelemetry.Core.csproj" />
+    <ProjectReference Include="..\..\src\FirstRatePlus.LoggingTelemetry.Api\FirstRatePlus.LoggingTelemetry.Api.csproj" />
   </ItemGroup>
 
 </Project>

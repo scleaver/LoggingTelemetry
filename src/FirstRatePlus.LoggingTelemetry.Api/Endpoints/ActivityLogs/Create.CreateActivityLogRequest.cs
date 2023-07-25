@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using FirstRatePlus.LoggingTelemetry.Api.Constants;
+using FirstRatePlus.LoggingTelemetry.Api.Converters;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
@@ -16,12 +18,6 @@ public class CreateActivityLogRequest
   /// </summary>
   [Required]
   public string UserId { get; set; } = null!;
-
-  /// <summary>
-  /// The type of activity eg. 'Calculation'.
-  /// </summary>
-  [Required]
-  public string ActivityType { get; set; } = null!;
 
   /// <summary>
   /// The official release number of the software where the activity occured. eg. 53000
@@ -45,12 +41,13 @@ public class CreateActivityLogRequest
   /// <summary>
   /// An optional JSON object with additional information to be recorded against the activity.
   /// </summary>
+  [JsonConverter(typeof(JObjectConverter))] // Use the custom converter for deserialization
   public JObject Data { get; set; }
 
   public CreateActivityLogRequest()
   {
     // Initialize the dynamic JSON object
-    Data = new JObject();
+    Data = new();
   }
 }
 
