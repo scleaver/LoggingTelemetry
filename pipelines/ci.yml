@@ -61,6 +61,14 @@ steps:
     projects: '$(buildProject)'
     arguments: '--configuration $(buildConfiguration) --no-restore'
 
+# Add the unit test step
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: 'test'
+    projects: 'tests/FirstRatePlus.LoggingTelemetry.UnitTests/FirstRatePlus.LoggingTelemetry.UnitTests.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish'
   inputs:
