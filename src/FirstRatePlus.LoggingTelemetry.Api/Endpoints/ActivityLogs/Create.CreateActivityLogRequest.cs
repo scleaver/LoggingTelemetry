@@ -30,7 +30,7 @@ public class CreateActivityLogRequest
   /// This will be converted to the corresponding date and time in UTC. 
   /// </summary>
   [Required]
-  public DateTimeOffset ActivityDate { get; set; }
+  public DateTime ActivityDate { get; set; }
 
   /// <summary>
   /// The name of the software where the activity occured.

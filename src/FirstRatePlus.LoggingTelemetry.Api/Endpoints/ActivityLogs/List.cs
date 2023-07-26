@@ -1,4 +1,13 @@
-﻿using FastEndpoints;
+﻿/*
+ * List.cs
+ * 
+ * This class represents an API endpoint for getting a collection of activity logs.
+ * It inherits from the Endpoint class provided by the FastEndpoints library.
+ * The endpoint handles HTTP GET requests to the specified route and allows anonymous access.
+ * It uses the Mapperly library for object mapping and the Microsoft.Azure.CosmosRepository library for data access.
+ */
+
+using FastEndpoints;
 using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
 using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 using FirstRatePlus.LoggingTelemetry.Core.Aggregates;

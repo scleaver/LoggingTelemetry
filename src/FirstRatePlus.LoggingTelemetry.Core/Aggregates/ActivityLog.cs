@@ -8,6 +8,8 @@ namespace FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 /// </summary>
 public class ActivityLog : Item
 {
+  private DateTime _activityDateUtc;
+
   /// <summary>
   /// The ID of the user who initiated the activity.
   /// </summary>
@@ -31,7 +33,11 @@ public class ActivityLog : Item
   /// <summary>
   /// The date and time the activity was initiated in UTC.
   /// </summary>
-  public DateTime ActivityDateUtc { get; set; }
+  public DateTime ActivityDateUtc
+  {
+    get => _activityDateUtc;
+    set => _activityDateUtc = value.ToUniversalTime();
+  }
 
   /// <summary>
   /// The dynamic JSON object associated with the activity log.

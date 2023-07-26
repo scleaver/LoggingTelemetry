@@ -7,6 +7,8 @@ namespace FirstRatePlus.LoggingTelemetry.Core.Aggregates;
 /// </summary>
 public class InstallLog : Item
 {
+  private string? _patchVersion;
+
   /// <summary>
   /// The ID of the user installing the software.
   /// </summary>
@@ -21,6 +23,15 @@ public class InstallLog : Item
   /// The official release number of the software when the record was created. eg. 53000
   /// </summary>
   public int ReleaseNumber { get; set; }
+
+  /// <summary>
+  /// The patch version of the software when the record was created. eg. A
+  /// </summary>
+  public string? PatchVersion
+  {
+    get => _patchVersion;
+    set => _patchVersion = value?.ToLower() ?? string.Empty;
+  }
 
   /// <summary>
   /// The name of the software being installed when the record was created.

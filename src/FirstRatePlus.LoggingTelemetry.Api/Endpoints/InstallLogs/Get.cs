@@ -1,4 +1,13 @@
-﻿using System.Net;
+﻿/*
+ * Get.cs
+ * 
+ * This class represents an API endpoint for getting an install log.
+ * It inherits from the Endpoint class provided by the FastEndpoints library.
+ * The endpoint handles HTTP GET requests to the specified route and allows anonymous access.
+ * It uses the Mapperly library for object mapping and the Microsoft.Azure.CosmosRepository library for data access.
+ */
+
+using System.Net;
 using FastEndpoints;
 using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
