@@ -1,0 +1,85 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+# Notes:
+# No auto triggers.
+# Optionally this can be merged into the main pipeline when feature completed
+# Upside of one pipeline: Both will build
+# Downside: Both will build
+# Because there is a shared project dependency you may prefer both building and always deploying.
+# I don't tend to as my functions don't tend to change much day to day
+# So I tend to trigger them manually.
+
+# A pipeline with no CI trigger
+trigger:
+  batch: true
+  branches:
+    include:
+    - main
+    - develop
+    - release/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: 'FirstRatePlus.LoggingTelemetry.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  buildProject: 'src/FirstRatePlus.LoggingTelemetry.Api/FirstRatePlus.LoggingTelemetry.Api.csproj'
+  compareBranch: main
+  versionFile: pipelines/ci.yml
+  gitTagName: v$(Build.BuildNumber)
+
+#name: $(versionMajor).$(versionMinor).$(versionPatch)$(Rev:.r)
+
+steps:
+- checkout: self
+  clean: true
+  submodules: true
+  persistCredentials: true
+
+- task: UseDotNet@2
+  displayName: 'Setup .NET Core 7.0'
+  inputs:
+    version: '7.0.x'
+    includePreviewVersions: false
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore $(buildConfiguration)'
+  inputs:
+    command: 'restore'
+    projects: '$(buildProject)'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    projects: '$(buildProject)'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+# Add the unit test step
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: 'test'
+    projects: 'tests/FirstRatePlus.LoggingTelemetry.UnitTests/FirstRatePlus.LoggingTelemetry.UnitTests.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(buildProject)'
+    arguments: '--configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)" --no-build --no-restore'
+    modifyOutputPath: true
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'

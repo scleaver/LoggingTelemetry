@@ -1,0 +1,44 @@
+name: firstrateplus
+services:
+
+  # For Azure Storage blob port 10010, queues port 10011 and tables port 10012
+  azure-storage:
+    container_name: azure-storage
+    image: mcr.microsoft.com/azure-storage/azurite
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+    networks:
+      - frplus-network
+    volumes:
+      - storage-data:/data
+  
+  # Cosmos DB
+  # azure-cosmosdb:
+  #   container_name: azure-cosmosdb
+  #   image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+  #   tty: true
+  #   restart: always
+  #   mem_limit: 3G
+  #   cpu_count: 2
+  #   environment:
+  #     - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
+  #     - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+  #   ports:
+  #     - "8081:8081"
+  #     - "10250-10255:10250-10255"
+  #   networks:
+  #     - frplus-network
+  #   platform: linux/amd64
+  #   volumes:
+  #     - vol_cosmos:/data/db
+
+volumes:
+  vol_cosmos:
+    driver: local
+  storage-data:
+    driver: local
+
+networks:
+  frplus-network: {}
