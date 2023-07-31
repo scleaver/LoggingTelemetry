@@ -14,8 +14,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.Core\FirstRatePlus.LoggingTelemetry.Core.csproj" />
-    <ProjectReference Include="..\..\SharedKernel\src\FirstRatePlus.SharedKernel\FirstRatePlus.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>
