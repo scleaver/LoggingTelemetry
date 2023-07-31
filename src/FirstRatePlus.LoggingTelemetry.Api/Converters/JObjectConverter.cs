@@ -1,4 +1,6 @@
 ﻿using System.Dynamic;
+using FastEndpoints;
+using FluentValidation.Results;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
@@ -28,7 +30,15 @@ public class JObjectConverter : JsonConverter<JObject>
       return jObject;
     }
 
-    throw new JsonSerializationException($"Unexpected token type: {reader.TokenType}. Expected JSON object.");
+    var valCtx = ValidationContext.Instance;
+    var failure = new ValidationFailure
+    {
+      PropertyName = reader.Path,
+      ErrorMessage = $"Unexpected token type: {reader.TokenType}. Expected JSON object.",
+    };
+    valCtx.AddError(failure);
+
+    return null;
   }
 
   /// <summary>
