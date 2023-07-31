@@ -2,6 +2,6 @@
 
 public class Routes
 {
-  public const string ActivityLogs = "internal/logging/activity-logs";
-  public const string InstallLogs = "internal/logging/install-logs";
+  public const string ActivityLogs = "activity-logs";
+  public const string InstallLogs = "install-logs";
 }

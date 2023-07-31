@@ -1,6 +1,4 @@
-﻿using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
-
-namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
+﻿namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
 
 /// <summary>
 /// Represents an install log.

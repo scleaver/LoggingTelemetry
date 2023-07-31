@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
+﻿namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
 
 public class CreateActivityLogResponse
 {

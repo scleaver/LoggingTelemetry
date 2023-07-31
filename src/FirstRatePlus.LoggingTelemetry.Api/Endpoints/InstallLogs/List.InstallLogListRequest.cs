@@ -1,5 +1,5 @@
-﻿using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
-using FirstRatePlus.LoggingTelemetry.Api.Constants;
+﻿using FirstRatePlus.LoggingTelemetry.Api.Constants;
+using FirstRatePlus.SharedApplication.ApiModels;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
 

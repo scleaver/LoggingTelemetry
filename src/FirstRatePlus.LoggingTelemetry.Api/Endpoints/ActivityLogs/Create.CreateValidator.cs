@@ -1,5 +1,4 @@
-﻿using System;
-using FastEndpoints;
+﻿using FastEndpoints;
 using FluentValidation;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.ActivityLogs;
