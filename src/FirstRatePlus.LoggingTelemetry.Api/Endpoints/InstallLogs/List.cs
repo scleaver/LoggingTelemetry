@@ -9,10 +9,10 @@
 
 using Ardalis.Specification;
 using FastEndpoints;
-using FirstRatePlus.LoggingTelemetry.Api.ApiModels;
 using FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogs;
 using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
+using FirstRatePlus.SharedApplication.ApiModels;
 using Microsoft.Azure.CosmosRepository;
 
 namespace FirstRatePlus.LoggingTelemetry.Api.Endpoints.InstallLogEndpoints;
