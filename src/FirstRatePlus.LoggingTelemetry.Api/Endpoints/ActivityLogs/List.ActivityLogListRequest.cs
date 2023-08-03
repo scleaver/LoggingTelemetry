@@ -23,4 +23,9 @@ public class ActivityLogListRequest : PagedRequest
   /// This defaults to the current date and time.
   /// </summary>
   public DateTime? DateTo { get; set; }
+
+  /// <summary>
+  /// The user id for which to fetch the results.
+  /// </summary>
+  public Guid? UserId { get; set; }
 }

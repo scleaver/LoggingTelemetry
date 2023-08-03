@@ -7,6 +7,7 @@
  * It uses the Mapperly library for object mapping and the Microsoft.Azure.CosmosRepository library for data access.
  */
 
+using System.Linq.Expressions;
 using FastEndpoints;
 using FirstRatePlus.LoggingTelemetry.Api.MappingProfiles;
 using FirstRatePlus.LoggingTelemetry.Core.Aggregates;
@@ -47,7 +48,26 @@ public class List : Endpoint<ActivityLogListRequest, PagedResponse<ActivityLogLi
       req.DateFrom = req.DateTo.Value.AddDays(-30);
     }
 
-    var pagedResults = await _repository.PageAsync(i => i.ActivityDateUtc >= req.DateFrom && i.ActivityDateUtc <= req.DateTo, req.Page, req.PageSize, true, ct);
+    Expression<Func<ActivityLog, bool>> filterExpression;
+
+    if (req.UserId is not null && req.UserId != Guid.Empty)
+    {
+      filterExpression = i => i.ActivityDateUtc >= req.DateFrom &&
+                              i.ActivityDateUtc <= req.DateTo &&
+                              i.UserId == req.UserId.ToString();
+    }
+    else
+    {
+      filterExpression = i => i.ActivityDateUtc >= req.DateFrom &&
+                              i.ActivityDateUtc <= req.DateTo;
+    }
+
+    var pagedResults = await _repository.PageAsync(filterExpression, req.Page, req.PageSize, true, ct);
+
+    if (req.UserId is not null && req.UserId != Guid.Empty)
+    {
+      // Add a filter for the user id.
+    }
 
     var response = new PagedResponse<ActivityLogListResponse>(new(), 0, req.Page, req.PageSize);
 
