@@ -77,7 +77,7 @@ if (app.Environment.IsDevelopment())
     catch (Exception ex)
     {
       var logger = services.GetRequiredService<ILogger<Program>>();
-      logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
+      logger.LogError(ex, "An error occurred seeding the DB. Error: {exceptionMessage}", ex.Message);
     }
   }
 }

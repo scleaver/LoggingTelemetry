@@ -6,6 +6,7 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Shouldly" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
@@ -23,6 +24,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\FirstRatePlus.LoggingTelemetry.Api\FirstRatePlus.LoggingTelemetry.Api.csproj" />
     <ProjectReference Include="..\FirstRatePlus.LoggingTelemetry.UnitTests\FirstRatePlus.LoggingTelemetry.UnitTests.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="InstallLogs\" />
   </ItemGroup>
 
 </Project>
