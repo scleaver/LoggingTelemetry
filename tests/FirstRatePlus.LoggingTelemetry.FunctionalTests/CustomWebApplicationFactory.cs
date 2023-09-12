@@ -1,12 +1,10 @@
 ﻿using FirstRatePlus.LoggingTelemetry.Api;
-using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.CosmosRepository;
-using Autofac.Core;
 
 namespace FirstRatePlus.LoggingTelemetry.FunctionalTests;
 

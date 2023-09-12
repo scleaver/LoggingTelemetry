@@ -4,6 +4,7 @@ using Autofac.Extensions.DependencyInjection;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using FirstRatePlus.LoggingTelemetry.Api;
+using FirstRatePlus.LoggingTelemetry.Api.Middlewares;
 using FirstRatePlus.LoggingTelemetry.Core;
 using FirstRatePlus.LoggingTelemetry.Infrastructure;
 using Microsoft.Azure.CosmosRepository;
@@ -112,6 +113,9 @@ app.UseFastEndpoints(c =>
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Handles non-success status codes with JSON response
+app.UseMiddleware<JsonExceptionMiddleware>();
 
 app.MapHealthChecks("/healthz");
 
